@@ -1,4 +1,3 @@
-/* Algemene styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,101 +6,86 @@ body {
   line-height: 1.7;
 }
 
-/* Hero sectie */
+/* Hero */
 .hero {
   background: linear-gradient(135deg, #003366, #005bbb);
   color: #fff;
   padding: 70px 20px;
   text-align: center;
 }
-
 .hero h1 {
   margin: 0 0 10px;
   font-size: 36px;
   font-weight: bold;
 }
-
 .hero p {
   max-width: 650px;
   margin: 0 auto;
   font-size: 18px;
 }
 
-/* Navigatie */
+/* Navigation */
 nav {
   background: #fff;
   border-bottom: 1px solid #ddd;
   padding: 15px;
   text-align: center;
 }
-
 nav a {
   margin: 0 15px;
   text-decoration: none;
   color: #003366;
   font-weight: bold;
 }
-
 nav a:hover {
   color: #005bbb;
-  text-decoration: underline;
 }
 
-/* Layout container */
+/* Content */
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 40px auto;
   padding: 0 20px;
 }
-
 h2 {
   color: #003366;
   margin-top: 40px;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 26px;
 }
 
-/* Grid layout */
+/* Service grid */
 .grid {
   display: grid;
   gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-/* Cards — klikbaar + hover zoals Wavesec */
+/* Cards — Wavesec style */
 .card {
-  display: block;
   background: #ffffff;
   padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #e2e6eb;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-  text-decoration: none;
-  color: #222;
+  border-radius: 10px;
+  border: 1px solid #e5e9f0;
   transition: all 0.25s ease;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #0d1a2d;
-}
-
-.card p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #444;
-}
-
-/* Hover-effect zoals Wavesec */
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-  border-color: #cdd8e6;
-  background: #f9fbff;
+  background: #eef5ff;
+  border-color: #ccd9ff;
+  box-shadow: 0 6px 18px rgba(0, 40, 110, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Titles inside cards (not hyperlinks) */
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #002b55;
 }
 
 /* Footer */
