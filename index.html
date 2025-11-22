@@ -1,157 +1,60 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Koeleman Consultancy</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background: #f4f6f8;
-    line-height: 1.7;
-  }
-
-  /* HEADER */
-  .hero {
-    background: linear-gradient(135deg, #003366 0%, #005bbb 100%);
-    color: #ffffff;
-    padding: 70px 20px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    margin: 0 0 10px;
-    font-size: 36px;
-    font-weight: bold;
-  }
-
-  .hero p {
-    max-width: 650px;
-    margin: 0 auto;
-    font-size: 18px;
-  }
-
-  /* NAV */
-  nav {
-    background: #ffffff;
-    border-bottom: 1px solid #dddddd;
-    padding: 15px 20px;
-    text-align: center;
-  }
-
-  nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #003366;
-    font-weight: bold;
-    font-size: 15px;
-  }
-
-  nav a:hover {
-    color: #005bbb;
-    text-decoration: underline;
-  }
-
-  /* MAIN CONTENT */
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  h2 {
-    color: #003366;
-    margin-top: 50px;
-    font-size: 26px;
-  }
-
-  /* DIENSTEN GRID */
-  .diensten-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .dienst {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #e2e2e2;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  .dienst h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #003366;
-    font-size: 18px;
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-    color: #666;
-    border-top: 1px solid #ddd;
-    background: #ffffff;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koeleman Consultancy</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-<div class="hero">
+<header class="hero">
   <h1>Koeleman Consultancy</h1>
-  <p>Ondersteuning bij re-integratie, loopbaanvragen en persoonlijke begeleiding naar nieuw werk. Praktisch, rustig en doelgericht.</p>
-</div>
+  <p>Ondersteuning bij re-integratie, loopbaanvragen en begeleiding naar nieuw werk.</p>
+</header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="over.html">Over</a>
-  <a href="diensten.html">Diensten</a>
-  <a href="contact.html">Contact</a>
+  <a href="/">Home</a>
+  <a href="/over/">Over</a>
+  <a href="/diensten/">Diensten</a>
+  <a href="/contact/">Contact</a>
 </nav>
 
 <div class="container">
-
   <h2>Diensten</h2>
 
-  <div class="diensten-grid">
-    <div class="dienst">
+  <div class="grid">
+    <div class="card">
       <h3>Re-integratiecoaching</h3>
-      <p>Persoonlijke begeleiding om stap voor stap terug te keren naar passend werk.</p>
+      Persoonlijke begeleiding terug naar passend werk.
     </div>
 
-    <div class="dienst">
+    <div class="card">
       <h3>Outplacement</h3>
-      <p>Professionele ondersteuning bij het vinden van een nieuwe baan na ontslag.</p>
+      Ondersteuning bij het vinden van nieuw werk na ontslag.
     </div>
 
-    <div class="dienst">
+    <div class="card">
       <h3>Loopbaanbegeleiding</h3>
-      <p>Inzicht in talent, richting en realistische vervolgstappen in je loopbaan.</p>
+      Inzicht in talent, richting en haalbare vervolgstappen.
     </div>
 
-    <div class="dienst">
+    <div class="card">
       <h3>Sollicitatietraining</h3>
-      <p>Helder CV, sterke motivatie en gerichte voorbereiding op gesprekken.</p>
+      Praktische voorbereiding op gesprekken, CV en motivatie.
     </div>
 
-    <div class="dienst">
+    <div class="card">
       <h3>HR-Advies</h3>
-      <p>Ondersteuning voor organisaties bij personeelsvraagstukken en casuïstiek.</p>
+      Advies voor werkgevers en HR over personeelsvraagstukken.
     </div>
   </div>
 
 </div>
 
 <footer>
-  © Koeleman Consultancy – Professionele begeleiding bij werk en ontwikkeling
+  © Koeleman Consultancy
 </footer>
 
 </body>
