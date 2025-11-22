@@ -1,3 +1,4 @@
+/* Algemene styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,6 +7,7 @@ body {
   line-height: 1.7;
 }
 
+/* Hero sectie */
 .hero {
   background: linear-gradient(135deg, #003366, #005bbb);
   color: #fff;
@@ -25,6 +27,7 @@ body {
   font-size: 18px;
 }
 
+/* Navigatie */
 nav {
   background: #fff;
   border-bottom: 1px solid #ddd;
@@ -44,8 +47,9 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Layout container */
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
 }
@@ -53,23 +57,54 @@ nav a:hover {
 h2 {
   color: #003366;
   margin-top: 40px;
-  font-size: 26px;
+  font-size: 28px;
+  font-weight: 700;
 }
 
+/* Grid layout */
 .grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* Cards — klikbaar + hover zoals Wavesec */
 .card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #e2e2e2;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: block;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e2e6eb;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: #222;
+  transition: all 0.25s ease;
 }
 
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0d1a2d;
+}
+
+.card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Hover-effect zoals Wavesec */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  border-color: #cdd8e6;
+  background: #f9fbff;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 30px;
