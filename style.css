@@ -112,3 +112,26 @@ footer {
   border-top: 1px solid #ddd;
   background: #fff;
 }
+/* Compact leesblok zoals LinkedIn */
+.content-box {
+  max-width: 720px;      /* maakt het smaller en leesbaarder */
+  margin: 40px auto;     /* centreert het blok */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid #e5e9f0;
+  box-shadow: 0 6px 18px rgba(0, 40, 110, 0.06);
+}
+
+/* Titels binnen content */
+.content-box h2 {
+  margin-top: 40px;
+  color: #003366;
+  font-size: 24px;
+}
+
+/* Lijsten */
+.content-box ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
