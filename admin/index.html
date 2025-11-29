@@ -2,65 +2,20 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Admin – Koeleman Consultancy</title>
+  <title>Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-
-    .box {
-      max-width: 720px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      border: 1px solid #e5e9f0;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
-    }
-
-    h1, h2 {
-      color: #003366;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 120px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 12px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    button {
-      background: #003366;
-      color: #fff;
-      border: none;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .status {
-      margin-top: 15px;
-      color: green;
-      font-size: 14px;
-    }
+    body { font-family: Arial; background:#f4f6f8; padding:40px; }
+    .box { background:#fff; padding:30px; max-width:600px; margin:auto; border-radius:10px; }
+    h2 { margin-top:30px; }
+    textarea { width:100%; min-height:100px; margin-top:10px; }
+    button { margin-top:20px; width:100%; padding:12px; }
   </style>
 </head>
-
 <body>
 
 <div class="box">
-  <h1>Admin – Pagina-beheer</h1>
+  <h1>Admin</h1>
 
   <h2>Home</h2>
   <textarea id="home"></textarea>
@@ -71,45 +26,30 @@
   <h2>Diensten</h2>
   <textarea id="diensten"></textarea>
 
-  <h2>Werving & Selectie</h2>
+  <h2>Werving</h2>
   <textarea id="werving"></textarea>
 
   <h2>Contact</h2>
   <textarea id="contact"></textarea>
 
   <button onclick="save()">Opslaan</button>
-  <div class="status" id="status"></div>
 </div>
 
 <script>
-fetch("/data/content.json")
-  .then(r => r.json())
-  .then(data => {
-    home.value = data.home || "";
-    over.value = data.over || "";
-    diensten.value = data.diensten || "";
-    werving.value = data.werving || "";
-    contact.value = data.contact || "";
-  });
-
 function save() {
-  const data = {
-    home: home.value,
-    over: over.value,
-    diensten: diensten.value,
-    werving: werving.value,
-    contact: contact.value
-  };
-
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "content.json";
-  a.click();
-
-  document.getElementById("status").innerText =
-    "Bestand gedownload. Upload dit bestand naar /data/content.json in GitHub.";
+  localStorage.setItem("home", home.value);
+  localStorage.setItem("over", over.value);
+  localStorage.setItem("diensten", diensten.value);
+  localStorage.setItem("werving", werving.value);
+  localStorage.setItem("contact", contact.value);
+  alert("Opgeslagen.");
 }
+
+home.value = localStorage.getItem("home") || "";
+over.value = localStorage.getItem("over") || "";
+diensten.value = localStorage.getItem("diensten") || "";
+werving.value = localStorage.getItem("werving") || "";
+contact.value = localStorage.getItem("contact") || "";
 </script>
 
 </body>
