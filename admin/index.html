@@ -12,9 +12,9 @@
       color: #333;
     }
 
-    .login-box, .admin-panel {
-      max-width: 420px;
-      margin: 120px auto;
+    .box {
+      max-width: 720px;
+      margin: 60px auto;
       background: #fff;
       padding: 40px;
       border-radius: 10px;
@@ -22,26 +22,23 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.08);
     }
 
-    h1 {
-      margin-top: 0;
-      font-size: 26px;
+    h1, h2 {
       color: #003366;
-      text-align: center;
     }
 
-    input, textarea {
+    textarea {
       width: 100%;
+      min-height: 120px;
+      margin-top: 10px;
+      margin-bottom: 20px;
       padding: 12px;
-      margin-top: 12px;
-      font-size: 15px;
+      font-size: 14px;
       border-radius: 6px;
       border: 1px solid #ccc;
       box-sizing: border-box;
     }
 
     button {
-      margin-top: 20px;
-      width: 100%;
       background: #003366;
       color: #fff;
       border: none;
@@ -49,21 +46,7 @@
       font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
-    }
-
-    button:hover {
-      background: #005bbb;
-    }
-
-    .admin-panel {
-      display: none;
-      max-width: 720px;
-    }
-
-    label {
-      margin-top: 20px;
-      display: block;
-      font-weight: bold;
+      width: 100%;
     }
 
     .status {
@@ -76,52 +59,57 @@
 
 <body>
 
-<div class="login-box" id="loginBox">
-  <h1>Admin login</h1>
-  <input type="text" id="username" placeholder="Gebruikersnaam">
-  <input type="password" id="password" placeholder="Wachtwoord">
-  <button onclick="login()">Inloggen</button>
-</div>
+<div class="box">
+  <h1>Admin – Pagina-beheer</h1>
 
-<div class="admin-panel" id="adminPanel">
-  <h1>Pagina-beheer</h1>
+  <h2>Home</h2>
+  <textarea id="home"></textarea>
 
-  <label>Werving & Selectie – Intro</label>
-  <textarea id="wervingText" rows="6"></textarea>
+  <h2>Over</h2>
+  <textarea id="over"></textarea>
 
-  <button onclick="saveContent()">Opslaan</button>
+  <h2>Diensten</h2>
+  <textarea id="diensten"></textarea>
+
+  <h2>Werving & Selectie</h2>
+  <textarea id="werving"></textarea>
+
+  <h2>Contact</h2>
+  <textarea id="contact"></textarea>
+
+  <button onclick="save()">Opslaan</button>
   <div class="status" id="status"></div>
 </div>
 
 <script>
-  const USERNAME = "admin";
-  const PASSWORD = "admin";
+fetch("/data/content.json")
+  .then(r => r.json())
+  .then(data => {
+    home.value = data.home || "";
+    over.value = data.over || "";
+    diensten.value = data.diensten || "";
+    werving.value = data.werving || "";
+    contact.value = data.contact || "";
+  });
 
-  function login() {
-    const u = document.getElementById("username").value;
-    const p = document.getElementById("password").value;
+function save() {
+  const data = {
+    home: home.value,
+    over: over.value,
+    diensten: diensten.value,
+    werving: werving.value,
+    contact: contact.value
+  };
 
-    if (u === USERNAME && p === PASSWORD) {
-      document.getElementById("loginBox").style.display = "none";
-      document.getElementById("adminPanel").style.display = "block";
-      loadContent();
-    } else {
-      alert("Onjuiste inloggegevens");
-    }
-  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "content.json";
+  a.click();
 
-  function saveContent() {
-    const text = document.getElementById("wervingText").value;
-    localStorage.setItem("wervingText", text);
-    document.getElementById("status").innerText = "Opgeslagen";
-  }
-
-  function loadContent() {
-    const saved = localStorage.getItem("wervingText");
-    if (saved) {
-      document.getElementById("wervingText").value = saved;
-    }
-  }
+  document.getElementById("status").innerText =
+    "Bestand gedownload. Upload dit bestand naar /data/content.json in GitHub.";
+}
 </script>
 
 </body>
