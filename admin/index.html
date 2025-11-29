@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Koeleman Consultancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    .login-box, .admin-panel {
+      max-width: 420px;
+      margin: 120px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      border: 1px solid #e5e9f0;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      color: #003366;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #003366;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005bbb;
+    }
+
+    .admin-panel {
+      display: none;
+      max-width: 720px;
+    }
+
+    label {
+      margin-top: 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .status {
+      margin-top: 15px;
+      color: green;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="login-box" id="loginBox">
+  <h1>Admin login</h1>
+  <input type="text" id="username" placeholder="Gebruikersnaam">
+  <input type="password" id="password" placeholder="Wachtwoord">
+  <button onclick="login()">Inloggen</button>
+</div>
+
+<div class="admin-panel" id="adminPanel">
+  <h1>Pagina-beheer</h1>
+
+  <label>Werving & Selectie – Intro</label>
+  <textarea id="wervingText" rows="6"></textarea>
+
+  <button onclick="saveContent()">Opslaan</button>
+  <div class="status" id="status"></div>
+</div>
+
+<script>
+  const USERNAME = "admin";
+  const PASSWORD = "admin";
+
+  function login() {
+    const u = document.getElementById("username").value;
+    const p = document.getElementById("password").value;
+
+    if (u === USERNAME && p === PASSWORD) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("adminPanel").style.display = "block";
+      loadContent();
+    } else {
+      alert("Onjuiste inloggegevens");
+    }
+  }
+
+  function saveContent() {
+    const text = document.getElementById("wervingText").value;
+    localStorage.setItem("wervingText", text);
+    document.getElementById("status").innerText = "Opgeslagen";
+  }
+
+  function loadContent() {
+    const saved = localStorage.getItem("wervingText");
+    if (saved) {
+      document.getElementById("wervingText").value = saved;
+    }
+  }
+</script>
+
+</body>
+</html>
